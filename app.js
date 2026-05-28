@@ -81,7 +81,7 @@ async function sendVoiceMessage(recipientId, textToSpeak) {
         // Generate raw Google TTS voice file link 
         // Note: Change 'en' to 'tl' if you want a Tagalog voice accent later
         const audioUrl = googleTTS.getAudioUrl(textToSpeak, {
-            lang: 'en',
+            lang: 'tl',
             slow: false,
             host: 'https://translate.google.com',
             timeout: 10000,
