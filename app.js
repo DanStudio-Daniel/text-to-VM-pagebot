@@ -42,14 +42,14 @@ app.post('/webhook', (req, res) => {
                     const incomingText = event.message.text;
                     console.log(`Received: "${incomingText}" from user: ${senderId}`);
 
-                    // Create the response text
-                    const botReplyText = `You said: ${incomingText}.`;
+                    // Create the requested text notification format
+                    const textNotification = `generating VM for "${incomingText}" please wait while we generate it...`;
 
                     // Send the plain text confirmation first
-                    await sendTextMessage(senderId, botReplyText);
+                    await sendTextMessage(senderId, textNotification);
 
-                    // Convert text to voice track and send the .mp3 file
-                    await sendVoiceMessage(senderId, botReplyText);
+                    // Convert text to voice track (bypassing "You said:") and send the .mp3 file
+                    await sendVoiceMessage(senderId, incomingText);
                 }
             });
         });
